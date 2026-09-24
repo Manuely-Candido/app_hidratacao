@@ -23,12 +23,30 @@ export default function App(){
   return(
     <SafeAreaProvider>
       <SafeAreaView>
+        <StatusBar barStyle={'auto'}/>
+        {/* isso é uma props        banana é o nome do objeto */}
+        {/* <View style={banana.container}> */}
         <View>
-          <Text>SENAI</Text>
+          {/* <Text style={banana.texto}>SENAI</Text> */}
           <Header />
-          <ActionButtons />
-        </View>
+          {/*<ActionButtons />  */}
+        </View> 
       </SafeAreaView>
     </SafeAreaProvider>
   );
 }
+
+// objeto          StyleSheet - componente       create - método
+// const banana = StyleSheet.create({
+//   container:{
+//     height: '100%',
+//     backgroundColor:'green',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+    
+//   },
+//   texto:{
+//     color: 'white',
+//     fontWeight: '700'
+//   },
+// })
