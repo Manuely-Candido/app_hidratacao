@@ -29,12 +29,27 @@ export default function App(){
         <View>
           {/* <Text style={banana.texto}>SENAI</Text> */}
           <Header GOAL={GOAL}/>
+          <WaterProgress consumed={1000} goal={GOAL}/>
           {/*<ActionButtons />  */}
         </View> 
       </SafeAreaView>
     </SafeAreaProvider>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // objeto          StyleSheet - componente       create - método
 // const banana = StyleSheet.create({
