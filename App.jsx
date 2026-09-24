@@ -7,7 +7,7 @@ import { WaterProgress } from './src/components/WaterProgress';
 import { ActionButtons } from './src/components/ActionButton';
 
 export default function App(){
-  // const GOAL = 2000;
+  const GOAL = 2000;
   // const [consumed, setConsumed] = useSate(0);
 
   // // Função para acumular a quantidade ingerida
@@ -28,7 +28,7 @@ export default function App(){
         {/* <View style={banana.container}> */}
         <View>
           {/* <Text style={banana.texto}>SENAI</Text> */}
-          <Header />
+          <Header GOAL={GOAL}/>
           {/*<ActionButtons />  */}
         </View> 
       </SafeAreaView>
