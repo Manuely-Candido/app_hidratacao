@@ -3,14 +3,14 @@ import { COLORS } from "../constants/colors"
 
 
 export function WaterProgress( {consumed, goal} ){
-    const porcentagem = Math.min(Math.round((consumed/goal)*100),100)
+    const porcentagem = Math.min(Math.round((consumed/goal)*100),100);
 
     return(
-        <View>
-            <Text>
-                Você bebeu {consumed}ml de água hoje.
+        <View style={styles.card}>
+            <Text style={styles.consumedText}>
+                {consumed}ml 
             </Text>
-            <Text>
+            <Text style={styles.percentageText}>
                 Você atingiu {porcentagem}% da meta diária.
             </Text>
             <View style={styles.progressBarBackground}>

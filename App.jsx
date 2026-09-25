@@ -30,7 +30,7 @@ export default function App(){
           {/* <Text style={banana.texto}>SENAI</Text> */}
           <Header GOAL={GOAL}/>
           <WaterProgress consumed={1000} goal={GOAL}/>
-          {/*<ActionButtons />  */}
+          <ActionButtons /> 
         </View> 
       </SafeAreaView>
     </SafeAreaProvider>
