@@ -8,25 +8,26 @@ import { ActionButtons } from './src/components/ActionButton';
 
 export default function App(){
   const GOAL = 2000;
-  // const [consumed, setConsumed] = useSate(0);
+  const [consumed, setConsumed] = useSate(0);
 
-  // // Função para acumular a quantidade ingerida
-  // const handleAddWater = (amount) => {
+  // Função para acumular a quantidade ingerida
+  const handleAddWater = (amount, onAdd) => {
+    consumed = amount;
+    setConsumed = consumed + onAdd;
+  };
 
-  // };
-
-  // // Função para zerar o contador
-  // const handleReset = () =>{
-
-  // };
+  // Função para zerar o contador
+  const handleReset = () =>{
+    setConsumed(0);
+  };
 
   return(
     <SafeAreaProvider>
-      <SafeAreaView>
+      <SafeAreaView style={styles.container}>
         <StatusBar barStyle={'auto'}/>
         {/* isso é uma props        banana é o nome do objeto */}
         {/* <View style={banana.container}> */}
-        <View>
+        <View style={styles.content}>
           {/* <Text style={banana.texto}>SENAI</Text> */}
           <Header GOAL={GOAL}/>
           <WaterProgress consumed={1000} goal={GOAL}/>
@@ -37,7 +38,17 @@ export default function App(){
   );
 }
 
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.background,
+  },
+  content: {
+    flex: 1,
+    padding: 24,
+    alignItems: 'center',
+  },
+});
 
 
 
