@@ -1,25 +1,37 @@
-import { useSate } from 'react';
+import { useState } from 'react';
 import { StyleSheet, View, Text, StatusBar } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from './src/constants/colors';
 import { Header } from './src/components/Header';
 import { WaterProgress } from './src/components/WaterProgress';
 import { ActionButtons } from './src/components/ActionButton';
+import { AjusteMeta } from './src/components/Meta';
+import { DicaSaude } from './src/components/Saude';
 
 export default function App(){
-  const GOAL = 2000;
-  const [consumed, setConsumed] = useSate(0);
+  // const GOAL = 2000;
+  const [consumed, setConsumed] = useState(0);
+
+  const [meta, setMeta] = useState(0)
 
   // Função para acumular a quantidade ingerida
-  const handleAddWater = (amount, onAdd) => {
-    consumed = amount;
-    setConsumed = consumed + onAdd;
+  // Ele pega o ml, consulta a memoria que está, e depois calcula a memória mais o ml
+  const handleAddWater = (ml) => {
+    setConsumed((memoria) => memoria + ml);
   };
 
   // Função para zerar o contador
-  const handleReset = () =>{
+  const handleReset = () => {
     setConsumed(0);
   };
+
+  const handleAddMeta = (valor) => {
+    setMeta(meta + valor)
+  }
+
+  const handleDimMeta = (valor) => {
+    setMeta(Math.max(0, meta - valor))
+  }
 
   return(
     <SafeAreaProvider>
@@ -29,9 +41,11 @@ export default function App(){
         {/* <View style={banana.container}> */}
         <View style={styles.content}>
           {/* <Text style={banana.texto}>SENAI</Text> */}
-          <Header GOAL={GOAL}/>
-          <WaterProgress consumed={1000} goal={GOAL}/>
-          <ActionButtons /> 
+          <Header goal ={meta}/>
+          <AjusteMeta meta={meta} onAddi={handleAddMeta} onDim={handleDimMeta}/>
+          <WaterProgress consumed={consumed} goal={meta}/>
+          <ActionButtons onAdd={handleAddWater} onReset={handleReset}/> 
+          <DicaSaude/>
         </View> 
       </SafeAreaView>
     </SafeAreaProvider>

@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
 import { COLORS } from "../constants/colors";
 
-export function Header( {GOAL} ){
+export function Header( {meta} ){
     return(
         <View style={styles.container}>
             <Text style={styles.title}>Hidratação APP</Text>
-            <Text style={styles.subtitle}>Meta Diária: {GOAL}ml</Text>
+            <Text style={styles.subtitle}>Meta Diária: {meta}ml</Text>
         </View>
     )
 };

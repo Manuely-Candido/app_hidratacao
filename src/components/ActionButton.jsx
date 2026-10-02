@@ -1,14 +1,17 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { COLORS } from "../constants/colors"
-import { App } from './'
 
-export function ActionButtons( onAdd, onReset ){
+export function ActionButtons({ onAdd, onReset }){
 
     return(
         <View style={styles.container}>
             <Text style={styles.label}>Adicionar Consumo:</Text>
 
             <View style={styles.buttonRow}>
+                <Pressable style={styles.button} onPress={() => onAdd(100)}>
+                    <Text style={styles.buttonText}>+100 ml</Text>
+                </Pressable>
+
                 <Pressable style={styles.button} onPress={() => onAdd(200)}>
                     <Text style={styles.buttonText}>+200 ml</Text>
                 </Pressable>
@@ -23,9 +26,9 @@ export function ActionButtons( onAdd, onReset ){
             </View>
 
             {/* Botão p/ reiniciar a contagem */}
-           <Pressable style={styles.resetButton} onPress={handleReset}>
-                <Text style={styles.resetButtonText}>Reiniciar Dia</Text>
-           </Pressable>
+            <Pressable style={styles.resetButton} onPress={onReset}>
+                  <Text style={styles.resetButtonText}>Reiniciar Dia</Text>
+            </Pressable>
         </View>
     )
 };
